@@ -1,0 +1,23 @@
+
+google Dork: inurl:'/.git/' intitle:"index of"
+
+msf auxiliary(git_scanner) > show options
+
+Module options (auxiliary/scanner/http/git_scanner):
+
+   Name       Current Setting  Required  Description
+   ----       ---------------  --------  -----------
+   Proxies                     no        A proxy chain of format type:host:port[,type:host:port][...]
+   RHOSTS     www.demo.net    yes       The target address range or CIDR identifier
+   RPORT      80               yes       The target port
+   TARGETURI  /                yes       The test path to .git directory
+   THREADS    1                yes       The number of concurrent threads
+   VHOST      www.demo.net    no        HTTP server virtual host
+
+msf auxiliary(git_scanner) > run
+
+[+] xxx.xxx.xxx.xxx:80 - Git Entries file found
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+msf auxiliary(git_scanner) > notes
+[*] Time: 2015-11-19 09:18:04 UTC Note: host=xxx.xxx.xxx.xxx port=80 protocol=tcp type=git_disclosure data={:version=>2, :entries_number=>89}
